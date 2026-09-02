@@ -1,0 +1,41 @@
+<div class="container mt-4">
+  <div class="p-5 mb-4 bg-light rounded-3">
+    <h1 class="display-5 fw-bold">Bem-vindo à Loja!</h1>
+    <p class="fs-4">Os melhores produtos você encontra aqui.</p>
+    <%= link_to t("products.index"), products_path, class: "btn btn-primary btn-lg me-2" %>
+    <%= link_to t("categories.index"), categories_path, class: "btn btn-outline-secondary btn-lg" %>
+  </div>
+
+  <p class="text-muted">
+    <%= @products_count %> produtos cadastrados em <%= @categories_count %> categorias.
+  </p>
+
+  <% if @categories.any? %>
+    <h2 class="h5 mb-2">Categorias</h2>
+    <div class="mb-4">
+      <% @categories.each do |category| %>
+        <%= link_to category.name, category, class: "badge text-bg-secondary text-decoration-none me-1 mb-1 p-2" %>
+      <% end %>
+    </div>
+  <% end %>
+
+  <% if @featured_products.any? %>
+    <h2 class="h5 mb-3">Produtos em destaque</h2>
+    <div class="row row-cols-1 row-cols-md-3 g-3 mb-4">
+      <% @featured_products.each do |product| %>
+        <div class="col">
+          <div class="card h-100">
+            <% if product.image.attached? %>
+              <%= image_tag product.image, class: "card-img-top", style: "height: 160px; object-fit: cover;" %>
+            <% end %>
+            <div class="card-body">
+              <h3 class="h6 card-title"><%= product.name %></h3>
+              <p class="card-text text-muted"><%= number_to_currency(product.price) %></p>
+              <%= link_to "Ver", product, class: "btn btn-sm btn-outline-primary" %>
+            </div>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+</div>

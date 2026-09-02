@@ -1,0 +1,23 @@
+<div class="container mt-4">
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+
+  <% content_for :title, t("categories.index") %>
+
+  <h1><%= t("categories.index") %></h1>
+
+  <div id="categories" class="list-group mb-3">
+    <% @categories.each do |category| %>
+      <div id="<%= dom_id(category) %>" class="list-group-item d-flex justify-content-between align-items-center">
+        <%= render category %>
+        <div class="d-flex gap-2">
+          <%= link_to "Ver", category, class: "btn btn-sm btn-outline-primary" %>
+          <%= button_to "Excluir", category, method: :delete, class: "btn btn-sm btn-outline-danger", form_class: "d-inline", data: { turbo_confirm: t("categories.destroy_confirm") } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to t("categories.new"), new_category_path, class: "btn btn-primary" %>
+</div>

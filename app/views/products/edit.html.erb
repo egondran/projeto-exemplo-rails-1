@@ -1,0 +1,12 @@
+<div class="container mt-4">
+  <% content_for :title, t("products.edit") %>
+
+  <h1><%= t("products.edit") %></h1>
+
+  <%= render "form", product: @product %>
+
+  <div class="mt-3">
+    <%= link_to t("products.show"), @product, class: "btn btn-outline-secondary" %>
+    <%= link_to t("products.back"), products_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>

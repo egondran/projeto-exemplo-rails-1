@@ -1,0 +1,11 @@
+<div class="container mt-4">
+  <% content_for :title, t("categories.new") %>
+
+  <h1><%= t("categories.new") %></h1>
+
+  <%= render "form", category: @category %>
+
+  <div class="mt-3">
+    <%= link_to t("categories.back"), categories_path, class: "btn btn-outline-secondary" %>
+  </div>
+</div>

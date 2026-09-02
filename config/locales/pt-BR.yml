@@ -1,0 +1,50 @@
+pt-BR:
+  activerecord:
+    models:
+      category: "Categoria"
+      product: "Produto"
+    attributes:
+      category:
+        name: "Nome"
+      product:
+        name: "Nome"
+        description: "Descrição"
+        price: "Preço"
+        category: "Categoria"
+        category_id: "Categoria"
+        image: "Foto"
+
+  categories:
+    index: "Categorias"
+    new: "Nova categoria"
+    edit: "Editar categoria"
+    show: "Visualizar categoria"
+    back: "Voltar"
+    destroy: "Excluir"
+    destroy_confirm: "Tem certeza?"
+    notice_created: "Categoria criada com sucesso."
+    notice_updated: "Categoria atualizada com sucesso."
+    notice_destroyed: "Categoria excluída com sucesso."
+    errors_header:
+      one: "1 erro impediu que esta categoria fosse salva:"
+      other: "%{count} erros impediram que esta categoria fosse salva:"
+
+  products:
+    index: "Produtos"
+    new: "Novo produto"
+    edit: "Editar produto"
+    show: "Visualizar produto"
+    back: "Voltar"
+    destroy: "Excluir"
+    destroy_confirm: "Tem certeza?"
+    notice_created: "Produto criado com sucesso."
+    notice_updated: "Produto atualizado com sucesso."
+    notice_destroyed: "Produto excluído com sucesso."
+    errors_header:
+      one: "1 erro impediu que este produto fosse salvo:"
+      other: "%{count} erros impediram que este produto fosse salvo:"
+
+  helpers:
+    submit:
+      create: "Criar %{model}"
+      update: "Atualizar %{model}"

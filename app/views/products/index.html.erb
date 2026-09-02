@@ -1,0 +1,28 @@
+<div class="container mt-4">
+  <% content_for :title, t("products.index") %>
+
+  <% if notice %>
+    <div class="alert alert-success"><%= notice %></div>
+  <% end %>
+
+  <h1><%= t("products.index") %></h1>
+
+  <%= form_with url: products_path, method: :get, class: "d-flex mb-3" do |form| %>
+    <%= form.text_field :query, value: params[:query], placeholder: "Buscar por nome...", class: "form-control me-2" %>
+    <%= form.submit "Buscar", class: "btn btn-outline-primary" %>
+  <% end %>
+
+  <div id="products" class="list-group mb-3">
+    <% @products.each do |product| %>
+      <div id="<%= dom_id(product) %>" class="list-group-item d-flex justify-content-between align-items-center">
+        <%= render product %>
+        <div class="d-flex gap-2">
+          <%= link_to "Ver", product, class: "btn btn-sm btn-outline-primary" %>
+          <%= button_to "Excluir", product, method: :delete, class: "btn btn-sm btn-outline-danger", form_class: "d-inline", data: { turbo_confirm: t("products.destroy_confirm") } %>
+        </div>
+      </div>
+    <% end %>
+  </div>
+
+  <%= link_to t("products.new"), new_product_path, class: "btn btn-primary" %>
+</div>

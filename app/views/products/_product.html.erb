@@ -1,0 +1,27 @@
+<div class="d-flex align-items-start flex-grow-1">
+  <% if product.image.attached? %>
+    <%= image_tag product.image, class: "rounded me-3", style: "width: 64px; height: 64px; object-fit: cover;" %>
+  <% end %>
+
+  <div>
+    <div>
+      <strong><%= t("activerecord.attributes.product.name") %>:</strong>
+      <%= product.name %>
+    </div>
+
+    <div>
+      <strong><%= t("activerecord.attributes.product.description") %>:</strong>
+      <%= product.description %>
+    </div>
+
+    <div>
+      <strong><%= t("activerecord.attributes.product.price") %>:</strong>
+      <%= number_to_currency(product.price) %>
+    </div>
+
+    <div>
+      <strong><%= t("activerecord.attributes.product.category") %>:</strong>
+      <%= product.category.name %>
+    </div>
+  </div>
+</div>
